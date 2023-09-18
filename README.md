@@ -23,3 +23,6 @@ docker version
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
+
+>>ssh key-gen
+>>cat /home/ubuntu/.ssh/id_rsa.pub   (copy and paste this code to var.tf public_ec2_key) 
