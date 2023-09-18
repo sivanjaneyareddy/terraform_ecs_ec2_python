@@ -1,0 +1,4 @@
+terraform*
+.terr*
+.main*
+docker-src/requirements.txt
