@@ -1,12 +1,6 @@
 ##### ECS-Cluster #####
-resource "null_resource" "delay" {
-  provisioner "local-exec" {
-  command = "sleep 20"
-  }
-        }
 resource "aws_ecs_cluster" "cluster" {
   name = "ecs-folderit-cluster"
- depends_on = ["null_resource.delay"]
 }
 
 ##### AWS ECS-TASK #####

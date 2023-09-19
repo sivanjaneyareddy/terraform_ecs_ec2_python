@@ -9,14 +9,16 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
-                sh 'terraform init'
+                sh 'sudo terraform init'
             }
         }
-        stage('Terraform apply') {
+        stage('terraform  action') {
             steps {
-                sh 'terraform apply --auto-approve'
+                echo "Terraform action is --> ${action}"
+                sh ('sudo terraform ${action} --auto-approve')
             }
         }
-        
     }
-}
+           
+    }
+
