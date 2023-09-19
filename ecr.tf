@@ -2,15 +2,8 @@
 ## Container registry for the service's Docker image
 ########################################################################################################################
 resource "aws_ecr_repository" "ecr" {
-  name =  "${lower(var.namespace)}/${var.service_name}"
+  name =  "${lower(var.namespace)}/${var.service_name}/${var.environment}"
   force_delete = true
-
-  image_scanning_configuration {
-    scan_on_push = true
-}
-  tags = {
-    Scenario = var.scenario
-  }
 }
 
 locals {
@@ -22,7 +15,7 @@ locals {
   aws_profile = "terraform" # AWS profile
  ///////////////////////////////////////////////////////////////////////////////////////////// 
   ecr_reg   = "${local.aws_account}.dkr.ecr.${local.aws_region}.amazonaws.com" # ECR docker registry URI
-  ecr_repo  = "demo"                                                           # ECR repo name
+  ecr_repo  = "${lower(var.namespace)}/${var.service_name}/${var.environment}"                # ECR repo name
   image_tag = "latest"                                                         # image tag
 
   dkr_img_src_path = "${path.module}/docker-src"
