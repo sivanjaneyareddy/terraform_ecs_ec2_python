@@ -13,7 +13,7 @@ resource "aws_lb" "loadbalancer" {
 
 resource "aws_alb_target_group" "alb_public_webservice_target_group" {
   name     = "public-webservice-tg"
-  port     = "80"
+  port     = "5001"
   protocol = "HTTP"
   vpc_id   = module.vpc.vpc_id
 
