@@ -37,3 +37,7 @@ resource "aws_lb_listener" "lb_listener-webservice-https" {
     target_group_arn = aws_alb_target_group.alb_public_webservice_target_group.id
   }
 }
+output "this_lb_dns_name" {
+  description = "The DNS name of the load balancer."
+  value       = aws_lb.loadbalancer.dns_name
+}

@@ -1,4 +1,11 @@
 ### General Variables ###
+
+variable "namespace" {
+  description = "Namespace for resource names"
+  default     = "lineaje"
+  type        = string
+}
+
 variable "domain_name" {
   type        = string
   description = "The domain name for the website."
@@ -26,7 +33,7 @@ variable "container_image" {
 }
 variable "environment" {
   type        = string
-  description = "Enviornment."
+  description = "Environment for deployment (like dev or staging)"
   default     = "dev"
 }
 
@@ -52,4 +59,16 @@ variable "containers_max" {
 variable "service_role"{
     type= string
     default= "arn:aws:iam::458087513482:role/ecs-service-autoscale-role"
+}
+
+variable "service_name" {
+  description = "A Docker image-compatible name for the service"
+  type        = string
+  default     = "buchi-cluster"
+}
+
+variable "container_port" {
+  description = "Port of the container"
+  type        = number
+  default     = 5001
 }
